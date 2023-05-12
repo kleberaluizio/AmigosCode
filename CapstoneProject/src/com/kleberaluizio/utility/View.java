@@ -2,24 +2,31 @@ package com.kleberaluizio.utility;
 
 import com.kleberaluizio.Database;
 
+import javax.swing.*;
+
 public class View {
     
     public static void viewAvailableCars(Database database){
-        database.showFleet();
+        viewMessage(database.showAvailableFleet(), "Car Fleet");
     }
 
-//    public static void viewAllUsers(Database database){
-//        database.showUsers();
-//    }
+    public static void viewElectricAvailableCars(Database database){
+        viewMessage(database.showEletricAvailableFleet(), "Electric Car Fleet");
+    }
 
     public static void viewAllUsers(Database database){
-        database.showUsers();
+        viewMessage(database.showUsers(), "Users");
+    }
+    public static void viewAllUsersBooked(Database database){
+        viewMessage(database.showBookedUsers(), "Users");
     }
 
     public static void viewBookings(Database database){
-        database.showBookings();
+        viewMessage(database.showBookings(), "Bookings");
+    }
+
+    public static void viewMessage(String list, String type){
+        JOptionPane.showMessageDialog(null, list,type,
+                JOptionPane.PLAIN_MESSAGE);
     }
 }
-
-// JOptionPane.showMessageDialog(null, “alerta”,
-//         “alerta”, JOptionPane.ERROR_MESSAGE);

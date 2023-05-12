@@ -39,4 +39,9 @@ public class UserService {
     public static void registerUser(User user, Database data){
         UserDAO.saveUser(user,data);
     }
+
+    public static void hasBookedCar(User user){
+        user.setBooked(true);
+
+    }
 }

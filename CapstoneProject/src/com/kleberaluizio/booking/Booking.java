@@ -31,9 +31,6 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "user=" + user +
-                ", cars=" + Arrays.toString(cars) +
-                '}';
+        return  user.getId().toString() + ": cars=" + Arrays.toString(cars) ;
     }
 }

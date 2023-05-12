@@ -9,7 +9,7 @@ public class Car {
     private int year;
     private User user;
     private boolean booked;
-    private boolean isEletric;
+    private boolean electric;
 
 
     public Car(Brand brand, String model, int year) {
@@ -17,18 +17,21 @@ public class Car {
         this.model = model;
         this.year = year;
         this.booked = false;
-        this.isEletric = false;
+        this.electric = false;
 
     }
-    public Car(Brand brand, String model, int year, Boolean isEletric) {
+    public Car(Brand brand, String model, int year, Boolean Electric) {
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.booked = false;
-        this.isEletric = isEletric;
+        this.electric = true;
 
     }
 
+    public boolean isElectric(){
+        return electric;
+    }
     public boolean isBooked(){
         return booked;
     }

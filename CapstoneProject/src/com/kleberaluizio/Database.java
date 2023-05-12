@@ -5,7 +5,7 @@ import com.kleberaluizio.car.Car;
 import com.kleberaluizio.user.User;
 
 public class Database {
-    private Car[] carFleet = new Car[4];
+    private Car[] carFleet = new Car[10];
     public static int FLEET_INDEX = 0;
 
     private User[] users = new User[4];
@@ -17,6 +17,13 @@ public class Database {
 
     public Booking[] getBookings(){
         return bookings;
+    }
+
+    public User[] getUsers(){
+        return users;
+    }
+    public Car[] getCarFleet(){
+        return carFleet;
     }
 
     public void setBookings(Booking booking){
@@ -34,40 +41,74 @@ public class Database {
         USERS_INDEX++;
     }
 
-    public void showFleet(){
+    public String showFleet(){
+        String temp = "";
+
         for (Car car : carFleet) {
             if (car == null){
                 continue;
             }
-            System.out.println(car);
+            temp = temp + car.toString() + "\n";
         }
+        return temp;
+    }
+    public String showAvailableFleet(){
+        String temp = "";
+
+        for (Car car : carFleet) {
+            if (car == null || car.isBooked()){
+                continue;
+            }
+            temp = temp + car.toString() + "\n";
+        }
+        return temp;
     }
 
-//    public void showUsers(){
-//        for (User user : users) {
-//            if (user == null){
-//                continue;
-//            }
-//            System.out.println(user);
-//        }
-//    }
-    public User showUsers(){
-        int count = 0;
+    public String showEletricAvailableFleet(){
+        String temp = "";
+
+        for (Car car : carFleet) {
+            if (car == null || car.isBooked()) {
+                continue;
+            }
+            if (car.isElectric()){
+                temp = temp + car.toString() + "\n";
+            }
+        }
+        return temp;
+    }
+
+    public String showUsers(){
+        String temp = "";
         for (User user : users) {
             if (user == null){
                 continue;
             }
-            count++;
+            temp = temp + user.toString() + "\n";
         }
+        return temp;
+    }
+    public String showBookedUsers(){
+        String temp = "";
+        for (User user : users) {
+            if (user == null || !user.isBooked()){  // VERIFICAR ESSA LINHA, NAO DEVERIA SER !NAO
+                continue;
+            }
+            temp = temp + user.toString() + "\n";
+        }
+        return temp;
     }
 
-    public void showBookings(){
+    public String showBookings(){
+        String temp = "";
         for (Booking bo : bookings) {
             if (bo == null){
                 continue;
             }
-            System.out.println(bo);
+            temp = temp + bo.toString() + "\n";
         }
+        return temp;
+
     }
 
 

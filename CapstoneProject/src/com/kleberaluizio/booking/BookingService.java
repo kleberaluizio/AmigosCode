@@ -25,12 +25,12 @@ public class BookingService {
                 if(booking != null && booking.getUser().equals(user)){
                     booking.add(car,1);
                     CarService.bookThisCar(car);
-                    printBooked(car, user);
                     return true;
                 }
             }
             BookingDAO.saveBooking(new Booking(user, car), database);
             CarService.bookThisCar(car);
+            UserService.hasBookedCar(user);
 
             printBooked(car, user);
             return true;

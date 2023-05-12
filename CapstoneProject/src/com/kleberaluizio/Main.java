@@ -21,8 +21,14 @@ public class Main {
         Car gol = new Car(Brand.VOLKSWAGEN, "Gol",2022);
         CarService.registerNewCar(gol,database);
 
+        Car up = new Car(Brand.VOLKSWAGEN, "UP",2023);
+        CarService.registerNewCar(up,database);
+
         Car uno1 = new Car(Brand.FIAT, "Uno",2018);
         CarService.registerNewCar(uno1,database);
+
+        Car tesla = new Car(Brand.TESLA, "Model T",2018,true);
+        CarService.registerNewCar(tesla,database);
 
         User leonel = new User("Pereira","Leonel",74);
         UserService.registerUser(leonel,database);
@@ -30,18 +36,24 @@ public class Main {
         User kleber = new User("Vaiz","Kleber",29);
         UserService.registerUser(kleber,database);
 
+        User nari = new User("Regina","Nariana",28);
+        UserService.registerUser(nari,database);
+
+        User ivo = new User("Maciel","Ivo",42);
+        UserService.registerUser(ivo,database);
 
 //        BookingService.bookCar(fiesta,kleber,database);
 //        BookingService.bookCar(uno,kleber,database);
 //        BookingService.bookCar(gol,leonel,database);
-//
+
 //        System.out.println("=".repeat(20));
 //        View.viewAvailableCars(database);
 //        System.out.println("=".repeat(20));
 //        View.viewAllUsers(database);
 //        View.viewBookings(database);
 
-        Menu.showMenu(database);
-
+        while(true) {
+            Menu.showMenu(database);
+        }
     }
 }

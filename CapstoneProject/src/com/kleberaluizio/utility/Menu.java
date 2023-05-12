@@ -1,6 +1,9 @@
 package com.kleberaluizio.utility;
 
 import com.kleberaluizio.Database;
+import com.kleberaluizio.booking.BookingService;
+import com.kleberaluizio.car.Car;
+import com.kleberaluizio.user.User;
 
 import javax.swing.*;
 
@@ -23,51 +26,47 @@ public class Menu {
 
         selectedOption(choice, database);
 
-//        BookingService.bookCar(fiesta,kleber,database);
-//        BookingService.bookCar(uno,kleber,database);
-//        BookingService.bookCar(gol,leonel,database);
-//
-//        System.out.println("=".repeat(20));
-//        View.viewAvailableCars(database);
-//        System.out.println("=".repeat(20));
-//        View.viewAllUsers(database);
-//        View.viewBookings(database);
 
     }
     public static void selectedOption(Character choice, Database database){
         switch (choice){
             case '1':
+                BookingSolicitation(database);
                 break;
             case '2':
+                View.viewAllUsersBooked(database);
                 break;
             case '3':
+                View.viewBookings(database);
                 break;
             case '4':
                 View.viewAvailableCars(database);
-                showMenu(database);
                 break;
             case '5':
+                View.viewElectricAvailableCars(database);
                 break;
             case '6':
                 View.viewAllUsers(database);
-                showMenu(database);
                 break;
             default:
+                System.exit(0);
         }
     }
 
+    public static void BookingSolicitation(Database database){
+
+        User user = (User) getDataToBookCar(database.getUsers(),"Select an user:");
+        Car car = (Car) getDataToBookCar(database.getCarFleet(),"Select a car:");
+
+        BookingService.bookCar(car,user,database);
+
+    }
+    public static Object getDataToBookCar(Object[] data,String message){
+        return JOptionPane.showInputDialog(null,message,"Booking Car",JOptionPane.DEFAULT_OPTION,
+                null,data,data[0]);
+    }
+
 }
-//        String inputValue = JOptionPane.showInputDialog(null,menuOptions,"Options",JOptionPane.PLAIN_MESSAGE);
-
-//    String menuOptions = """
-//                1 - Book Car
-//                2 - View All User Booked
-//                3 - View All Bookings
-//                4 - View Available Cars
-//                5 - View Available Electric Cars
-//                6 - View all users
-//                7 - Exit""";
-
 
 
 
