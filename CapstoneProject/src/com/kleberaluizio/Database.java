@@ -41,17 +41,6 @@ public class Database {
         USERS_INDEX++;
     }
 
-    public String showFleet(){
-        String temp = "";
-
-        for (Car car : carFleet) {
-            if (car == null){
-                continue;
-            }
-            temp = temp + car.toString() + "\n";
-        }
-        return temp;
-    }
     public String showAvailableFleet(){
         String temp = "";
 
