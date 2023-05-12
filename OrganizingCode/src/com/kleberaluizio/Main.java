@@ -24,6 +24,11 @@ public class Main {
               */
         carsExample();
         // Controllets / REST API
+        // Utility class
+            /* Utility classes in Java are a type of class that contains static methods and helper functions,
+              typically used to provide common functionality or perform generic operations that are not tied
+              to a specific object or domain (Normally).
+             */
         // Utility classes
         // Configuration class
 
