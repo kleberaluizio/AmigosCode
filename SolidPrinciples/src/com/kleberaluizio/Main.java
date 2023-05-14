@@ -1,9 +1,6 @@
 package com.kleberaluizio;
 
-import com.kleberaluizio.solid.AreaCalculator;
-import com.kleberaluizio.solid.Circle;
-import com.kleberaluizio.solid.ShapesPrinter;
-import com.kleberaluizio.solid.Square;
+import com.kleberaluizio.solid.*;
 
 import java.util.List;
 
@@ -13,7 +10,14 @@ public class Main {
         AreaCalculator areaCalculator = new AreaCalculator();
         Circle circle = new Circle(10);
         Square square = new Square( 10);
-        List<Object> shapes = List.of(circle, square);
+        Rectangle rectangle = new Rectangle(10, 15);
+        Cube cube = new Cube(new Square(12));
+
+        List<Shape> shapes = List.of(
+                rectangle,
+                circle,
+                square,
+                cube);
 
         int sum = AreaCalculator.sum(shapes);
 
