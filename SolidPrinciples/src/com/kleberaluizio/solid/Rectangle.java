@@ -3,23 +3,23 @@ package com.kleberaluizio.solid;
 public class Rectangle implements Shape{
 
     private final int length;
-    private final int heigth;
+    private final int height;
 
 
-    public Rectangle(int length, int heigth){
+    public Rectangle(int length, int height){
         this.length = length;
-        this.heigth = heigth;
+        this.height = height;
     }
 
     public int getLength() {
         return length;
     }
-    public int getHeigth() {
-        return heigth;
+    public int getHeight() {
+        return height;
     }
 
     @Override
     public double area() {
-        return getLength() * getHeigth();
+        return getLength() * getHeight();
     }
 }

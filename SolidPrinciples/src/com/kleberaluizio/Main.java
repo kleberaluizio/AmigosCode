@@ -26,6 +26,8 @@ public class Main {
         System.out.println(ShapesPrinter.json(sum));
         System.out.println(ShapesPrinter.csv(sum));
 
+        System.out.println(cube.volume());
+
     }
 
     /*
@@ -42,6 +44,9 @@ public class Main {
     be substitutable for their base or parent class.
 
     INTERFACE SEGREGATION
+    Interfaces should not force classes to implement
+    what they can't do.
+    Large interfaces should be divided into small ones.
 
      */
 }
