@@ -7,12 +7,14 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        AreaCalculator areaCalculator = new AreaCalculator();
+        IAreaCalculator areaCalculator = new AreaCalculator();
         Circle circle = new Circle(10);
         Square square = new Square( 10);
         Rectangle rectangle = new Rectangle(10, 15);
         Cube cube = new Cube(new Square(12));
         NoShape noShape = new NoShape();
+
+        ShapesPrinter shapesPrinter = new ShapesPrinter(areaCalculator);
 
         List<Shape> shapes = List.of(
                 rectangle,
@@ -20,11 +22,11 @@ public class Main {
                 square,
                 cube);
 
-        int sum = AreaCalculator.sum(shapes);
+        int sum = areaCalculator.sum(shapes);
 
 //        System.out.println("Sum = " + sum);
-        System.out.println(ShapesPrinter.json(sum));
-        System.out.println(ShapesPrinter.csv(sum));
+        System.out.println(shapesPrinter.json(shapes));
+        System.out.println(shapesPrinter.csv(shapes));
 
         System.out.println(cube.volume());
 

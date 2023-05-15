@@ -1,16 +1,22 @@
 package com.kleberaluizio.solid;
 
+import java.util.List;
+
 public class ShapesPrinter {
 
+    private final IAreaCalculator areaCalculator;
 
-    public static String json(int sum) {
+    public ShapesPrinter(IAreaCalculator areaCalculator){
+        this.areaCalculator = areaCalculator;
+    }
+    public String json(List<Shape>shapes) {
 
-        return "{shapesSum: %s}".formatted(sum);
+        return "{shapesSum: %s}".formatted(areaCalculator.sum(shapes));
     }
 
-    public static String csv(int sum) {
+    public String csv(List<Shape>shapes) {
 
-        return "shapes_sum, %s".formatted(sum);
+        return "shapes_sum, %s".formatted(areaCalculator.sum(shapes));
     }
 
 
