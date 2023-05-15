@@ -12,6 +12,7 @@ public class Main {
         Square square = new Square( 10);
         Rectangle rectangle = new Rectangle(10, 15);
         Cube cube = new Cube(new Square(12));
+        NoShape noShape = new NoShape();
 
         List<Shape> shapes = List.of(
                 rectangle,
@@ -35,6 +36,12 @@ public class Main {
     OPEN CLOSED
     Classes should be open for extension,
     closed for modification.
+
+    LISKOV SUBSTITUTION
+    This means that every subclass or derived class should
+    be substitutable for their base or parent class.
+
+    INTERFACE SEGREGATION
 
      */
 }
