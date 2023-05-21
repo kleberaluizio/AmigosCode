@@ -8,5 +8,7 @@ public class Main {
         System.out.println(faker.name().fullName());
         System.out.println(faker.dog().age());
         System.out.println(faker.address().city());
+
+        // lesson 269 01:32
     }
 }
