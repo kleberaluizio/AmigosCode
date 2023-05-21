@@ -50,5 +50,8 @@ public class Main {
     what they can't do.
     Large interfaces should be divided into small ones.
 
+    DEPENDENCY INVERSION
+    High-level modules should not depend on low-level modules.
+    Both should depend on abstractions.
      */
 }
