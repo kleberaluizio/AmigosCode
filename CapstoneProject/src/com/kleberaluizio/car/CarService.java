@@ -1,7 +1,6 @@
 package com.kleberaluizio.car;
 
 import com.kleberaluizio.Database;
-import com.kleberaluizio.user.User;
 
 public class CarService {
     private CarDAO carDAO;
@@ -10,7 +9,7 @@ public class CarService {
         this.carDAO = new CarDAO();
     }
 
-    public static boolean isCarBooked(Car car, User user){
+    public static boolean isCarBooked(Car car){
         if(car == null){
             return false;
         }

@@ -56,7 +56,7 @@ public class Menu {
     public static void BookingSolicitation(Database database){
 
         User user = (User) getDataToBookCar(database.getUsers(),"Select an user:");
-        Car car = (Car) getDataToBookCar(database.getCarFleet(),"Select a car:");
+        Car car = (Car) getDataToBookCar(database.getAvailableCars(),"Select a car:");
 
         BookingService.bookCar(car,user,database);
 

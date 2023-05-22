@@ -4,6 +4,9 @@ import com.kleberaluizio.booking.Booking;
 import com.kleberaluizio.car.Car;
 import com.kleberaluizio.user.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Database {
     private Car[] carFleet = new Car[10];
     public static int FLEET_INDEX = 0;
@@ -24,6 +27,23 @@ public class Database {
     }
     public Car[] getCarFleet(){
         return carFleet;
+    }
+
+    public Car[] getAvailableCars(){
+        List<Car> temp = new ArrayList<>();
+        for (Car car : carFleet) {
+            if (car == null || car.isBooked()) {
+                continue;
+            }
+            temp.add(car);
+
+        }
+        Car[] availableCars = new Car[temp.size()];
+        for (int i = 0; i < temp.size(); i++) {
+            availableCars[i] = temp.get(i);
+        }
+
+        return availableCars;
     }
 
     public void setBookings(Booking booking){

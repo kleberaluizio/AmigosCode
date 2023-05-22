@@ -9,7 +9,7 @@ import com.kleberaluizio.user.UserService;
 public class BookingService {
 
     public static boolean bookCar(Car car, User user, Database database){
-        boolean flag = CarService.isCarBooked(car, user);
+        boolean flag = CarService.isCarBooked(car);
         int index=-1;
 
         if(!flag){
