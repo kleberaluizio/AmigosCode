@@ -1,10 +1,13 @@
 package com.kleberaluizio;
 
-// 295 lesson
+// 295 lesso n
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 //MY FIRST API WITH SPRING BOOT
 
@@ -18,8 +21,27 @@ public class Main {
     }
 
     @GetMapping("/greet")
-    public String greet(){
-        return "Hello World";
+    public GreetResponse greet(){
+
+        GreetResponse response = new GreetResponse(
+                "Hello!",
+                List.of("Java","Golang","javascript"),
+                new Person("Alex",28,30_000)
+        );
+        return response;
+
     }
+
+    record Person(String name, int age, double savings){}
+
+    record GreetResponse(
+            String greet,
+            List<String> favProgrammingLanguage,
+            Person person
+    ){}
+//    @GetMapping("/greet")
+//    public String greet(){
+//        return "Hello World";
+//    }
 
 }
