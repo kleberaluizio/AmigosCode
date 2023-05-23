@@ -1,9 +1,12 @@
 package com.kleberaluizio.customer;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository // Indicates will be created a Bean of this class = REPOSITORY is FOR DAO
 public class CustomerDataAccessService implements CustomerDao {
     //db
     private static List<Customer> customers;

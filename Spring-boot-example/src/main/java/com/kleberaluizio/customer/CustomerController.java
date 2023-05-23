@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@RestController // This customerController will be a Bean
 public class CustomerController { // This kind of classes take care of HTTPs requests
 
     private final CustomerService customerService;
 
+//    @Autowired // This is no long needed
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }

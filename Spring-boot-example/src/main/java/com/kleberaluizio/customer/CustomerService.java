@@ -1,7 +1,10 @@
 package com.kleberaluizio.customer;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service // Indicates will be created a Bean of this class = SERVICE IS FOR SERVICE CLASSES
 public class CustomerService {
 
     private final CustomerDao customerDao;
