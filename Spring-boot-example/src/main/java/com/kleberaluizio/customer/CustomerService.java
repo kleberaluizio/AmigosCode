@@ -1,5 +1,6 @@
 package com.kleberaluizio.customer;
 
+import com.kleberaluizio.exception.ResourceNotFound;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +20,8 @@ public class CustomerService {
 
     public Customer getCustomer(Integer id){
         return customerDao.selectCustomersById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Customer with id [%s] not found".formatted(id)
+                .orElseThrow(() -> new ResourceNotFound(
+                        "Customer with id [%s] not found".formatted(id)
                 ));
 
     }
