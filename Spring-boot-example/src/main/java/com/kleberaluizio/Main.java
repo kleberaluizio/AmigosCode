@@ -1,12 +1,16 @@
 package com.kleberaluizio;
 
 //334 lesson
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+
+import com.kleberaluizio.customer.Customer;
+import com.kleberaluizio.customer.CustomerRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Scope;
+
+import java.util.List;
 
 @SpringBootApplication
 public class Main {
@@ -18,19 +22,30 @@ public class Main {
 //        printBeans(applicationContext);
     }
 
-    @Bean("foo")
-    @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
-    public Foo getFoo(){
-        return new Foo("bar");
-    }
-    record Foo(String name){}
+    @Bean
+    CommandLineRunner runner(CustomerRepository customerRepository){
+        return args -> {
+            Customer jamila = new Customer(
+                    "Jamila",
+                    "jamila@gmail.com",
+                    19
+            );
 
-    private static void printBeans(ConfigurableApplicationContext ctx){
-        String [] beanDefinitionsNames = ctx.getBeanDefinitionNames();
+            Customer alex = new Customer(
+                    "Alex",
+                    "alex@gmail.com",
+                    21
+            );
 
-        for (String beanDefinitionsName : beanDefinitionsNames) {
-            System.out.println(beanDefinitionsName);
-        }
+            Customer nari = new Customer(
+                    "Nari",
+                    "nari@gmail.com",
+                    28
+            );
+
+            List<Customer> customers = List.of(alex, jamila, nari);
+            customerRepository.saveAll(customers);
+        };
     }
 
 }
